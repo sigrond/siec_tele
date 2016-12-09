@@ -22,7 +22,7 @@ function varargout = siec_tele(varargin)
 
 % Edit the above text to modify the response to help siec_tele
 
-% Last Modified by GUIDE v2.5 09-Dec-2016 18:20:29
+% Last Modified by GUIDE v2.5 09-Dec-2016 19:04:18
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -150,8 +150,8 @@ function pushbutton_analiza2_Callback(hObject, eventdata, handles)
 
 
 % --------------------------------------------------------------------
-function Untitled_1_Callback(hObject, eventdata, handles)
-% hObject    handle to Untitled_1 (see GCBO)
+function files_Callback(hObject, eventdata, handles)
+% hObject    handle to files (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
@@ -163,3 +163,26 @@ function axes1_CreateFcn(hObject, eventdata, handles)
 % handles    empty - handles not created until after all CreateFcns called
 
 % Hint: place code in OpeningFcn to populate axes1
+
+
+% --------------------------------------------------------------------
+function save_to_AMPL_Callback(hObject, eventdata, handles)
+% hObject    handle to save_to_AMPL (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+save_to_AMPL_data(handles.A,'p');
+save_to_AMPL_data(handles.B,'cen');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
