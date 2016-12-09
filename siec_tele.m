@@ -22,7 +22,7 @@ function varargout = siec_tele(varargin)
 
 % Edit the above text to modify the response to help siec_tele
 
-% Last Modified by GUIDE v2.5 09-Dec-2016 11:14:48
+% Last Modified by GUIDE v2.5 09-Dec-2016 18:20:29
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -58,6 +58,9 @@ handles.output = hObject;
 handles.A=zeros(10,10);
 handles.B=ones(10,10);
 handles.currentMatrix='A';
+handles.G=digraph(handles.A);
+handles.p=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+
 
 % Update handles structure
 guidata(hObject, handles);
@@ -85,6 +88,8 @@ function pushbutton_p_Callback(hObject, eventdata, handles)
 %handles.B=zeros(10,10);
 set(handles.uitable1,'Data',handles.A);
 handles.currentMatrix='A';
+handles.G=digraph(handles.A);
+handles.p=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
 guidata(hObject, handles);
 
 
@@ -96,6 +101,8 @@ function pushbutton_cen_Callback(hObject, eventdata, handles)
 %handles.A=ones(12,12);
 set(handles.uitable1,'Data',handles.B);
 handles.currentMatrix='B';
+handles.G=digraph(handles.B);
+handles.p=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
 guidata(hObject, handles);
 
 
@@ -117,8 +124,42 @@ switch handles.currentMatrix
     case 'A'
         handles.A(x,y)=eventdata.NewData;
         set(handles.uitable1,'Data',handles.A);
+        handles.G=digraph(handles.A);
+        handles.p=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
     case 'B'
         handles.B(x,y)=eventdata.NewData;
         set(handles.uitable1,'Data',handles.B);
+        handles.G=digraph(handles.B);
+        handles.p=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
 end
 guidata(hObject, handles);
+
+
+% --- Executes on button press in pushbutton_analiza1.
+function pushbutton_analiza1_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton_analiza1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton_analiza2.
+function pushbutton_analiza2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton_analiza2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function Untitled_1_Callback(hObject, eventdata, handles)
+% hObject    handle to Untitled_1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes during object creation, after setting all properties.
+function axes1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to axes1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: place code in OpeningFcn to populate axes1
