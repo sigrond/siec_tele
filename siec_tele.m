@@ -64,6 +64,8 @@ handles.cen=handles.A;
 handles.currentMatrix='p';
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+handles.AMPLpath=load_AMPL_path();
+handles.DatFileName='dataV2.dat';
 
 
 % Update handles structure
@@ -150,6 +152,9 @@ function pushbutton_analiza1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton_analiza1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+s=strjoin(handles.AMPLpath{1});
+write_bat_for_AMPL( s, 'modelV2.mod', handles.DatFileName, 'run.run' );
+system('a1.bat');
 
 
 % --- Executes on button press in pushbutton_analiza2.
@@ -216,8 +221,8 @@ function load_from_AMPL_Callback(hObject, eventdata, handles)
 % hObject    handle to load_from_AMPL (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-[FileName,PathName] = uigetfile('*.dat','Wybierz odpowiedni plik z danymi.');
-[ handles.p, handles.kos, handles.kar, handles.cen ]=load_from_AMPL_data(fullfile(PathName, FileName));
+[handles.DatFileName,handles.DatPathName] = uigetfile('*.dat','Wybierz odpowiedni plik z danymi.');
+[ handles.p, handles.kos, handles.kar, handles.cen ]=load_from_AMPL_data(fullfile(handles.DatPathName, handles.DatFileName));
 switch handles.currentMatrix
     case 'p'
         handles.A=handles.p;
