@@ -22,7 +22,7 @@ function varargout = siec_tele(varargin)
 
 % Edit the above text to modify the response to help siec_tele
 
-% Last Modified by GUIDE v2.5 10-Dec-2016 12:57:25
+% Last Modified by GUIDE v2.5 10-Dec-2016 18:38:43
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -84,6 +84,7 @@ function varargout = siec_tele_OutputFcn(hObject, eventdata, handles)
 
 % Get default command line output from handles structure
 varargout{1} = handles.output;
+
 
 
 % --- Executes on button press in pushbutton_p.
@@ -155,6 +156,13 @@ function pushbutton_analiza1_Callback(hObject, eventdata, handles)
 s=strjoin(handles.AMPLpath{1});
 write_bat_for_AMPL( s, 'modelV2.mod', handles.DatFileName, 'run.run' );
 system('a1.bat');
+[ handles.x, handles.d ] = load_AMPL_results();
+handles.A=handles.x;
+handles.currentMatrix='x';
+set(handles.uitable1,'Data',handles.A);
+handles.G=digraph(handles.A);
+handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+guidata(hObject, handles);
 
 
 % --- Executes on button press in pushbutton_analiza2.
@@ -243,3 +251,29 @@ function uipushtool_open_ClickedCallback(hObject, eventdata, handles)
 % hObject    handle to uipushtool_open (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton_x.
+function pushbutton_x_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton_x (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+handles.A=handles.x;
+handles.currentMatrix='x';
+set(handles.uitable1,'Data',handles.A);
+handles.G=digraph(handles.A);
+handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+guidata(hObject, handles);
+
+
+% --- Executes on button press in pushbutton_d.
+function pushbutton_d_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton_d (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+handles.A=handles.d;
+handles.currentMatrix='d';
+set(handles.uitable1,'Data',handles.A);
+handles.G=digraph(handles.A);
+handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+guidata(hObject, handles);
