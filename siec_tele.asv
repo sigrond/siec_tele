@@ -182,7 +182,7 @@ function save_to_AMPL_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 save_to_AMPL_data(handles.p,'p');
 save_to_AMPL_data(handles.kos,'kos');
-save_to_AMPL_data(handles.kar,'kar');
+save_to_AMPL_data(handles.kar,'p');
 save_to_AMPL_data(handles.cen,'cen');
 
 
@@ -218,19 +218,6 @@ function load_from_AMPL_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 [FileName,PathName] = uigetfile('*.dat','Wybierz odpowiedni plik z danymi.');
 [ handles.p, handles.kos, handles.kar, handles.cen ]=load_from_AMPL_data(fullfile(PathName, FileName));
-switch handles.currentMatrix
-    case 'p'
-        handles.A=handles.p;
-    case 'kos'
-        handles.A=handles.kos;
-    case 'kar'
-        handles.A=handles.kar;
-    case 'cen'
-        handles.A=handles.cen;
-end
-set(handles.uitable1,'Data',handles.A);
-handles.G=digraph(handles.A);
-handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
 guidata(hObject, handles);
 
 % --------------------------------------------------------------------
