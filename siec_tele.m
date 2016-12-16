@@ -22,7 +22,7 @@ function varargout = siec_tele(varargin)
 
 % Edit the above text to modify the response to help siec_tele
 
-% Last Modified by GUIDE v2.5 10-Dec-2016 18:38:43
+% Last Modified by GUIDE v2.5 16-Dec-2016 09:42:56
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -277,3 +277,61 @@ set(handles.uitable1,'Data',handles.A);
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
 guidata(hObject, handles);
+
+
+% --- Executes on button press in togglebutton1.
+function togglebutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton1
+
+
+% --- Executes on button press in pushbutton_dodaj_usun.
+function pushbutton_dodaj_usun_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton_dodaj_usun (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+val=dialog1();
+if val>0
+	handles.p=[handles.p(:,1:val-1) zeros(size(handles.p,1),1) handles.p(:,val:end)];
+    handles.p=[handles.p(1:val-1,:); zeros(1,size(handles.p,2)); handles.p(val:end,:)];
+    handles.kos=[handles.kos(:,1:val-1) zeros(size(handles.kos,1),1) handles.kos(:,val:end)];
+    handles.kos=[handles.kos(1:val-1,:); zeros(1,size(handles.kos,2)); handles.kos(val:end,:)];
+    handles.kar=[handles.kar(:,1:val-1) zeros(size(handles.kar,1),1) handles.kar(:,val:end)];
+    handles.kar=[handles.kar(1:val-1,:); zeros(1,size(handles.kar,2)); handles.kar(val:end,:)];
+    handles.cen=[handles.cen(:,1:val-1) zeros(size(handles.cen,1),1) handles.cen(:,val:end)];
+    handles.cen=[handles.cen(1:val-1,:); zeros(1,size(handles.cen,2)); handles.cen(val:end,:)];
+elseif val<0
+    val=-val;
+    handles.p=[handles.p(:,1:val-1) handles.p(:,val+1:end)];
+    handles.p=[handles.p(1:val-1,:); handles.p(val+1:end,:)];
+    handles.kos=[handles.kos(:,1:val-1) handles.kos(:,val+1:end)];
+    handles.kos=[handles.kos(1:val-1,:); handles.kos(val+1:end,:)];
+    handles.kar=[handles.kar(:,1:val-1) handles.kar(:,val+1:end)];
+    handles.kar=[handles.kar(1:val-1,:); handles.kar(val+1:end,:)];
+    handles.cen=[handles.cen(:,1:val-1) handles.cen(:,val+1:end)];
+    handles.cen=[handles.cen(1:val-1,:); handles.cen(val+1:end,:)];
+end
+switch handles.currentMatrix
+    case 'p'
+        handles.A=handles.p;
+    case 'kos'
+        handles.A=handles.kos;
+    case 'kar'
+        handles.A=handles.kar;
+    case 'cen'
+        handles.A=handles.cen;
+end
+set(handles.uitable1,'Data',handles.A);
+handles.G=digraph(handles.A);
+handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+guidata(hObject, handles);
+
+
+% --------------------------------------------------------------------
+function Untitled_1_Callback(hObject, eventdata, handles)
+% hObject    handle to Untitled_1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
