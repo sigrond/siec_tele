@@ -1,0 +1,13 @@
+param N;
+param s := 0;
+param e := N+1;
+param p {s..e, s..e};
+var x {i in s..e, j in s..e} >= 0;
+maximize Q: 0*(sum {i in s..e, j in s..e} x[i,j])+sum {i in s..e} x[i,e];
+subject to ogr3 {i in 1..N, j in 1..e}: x[i,j]+x[j,i]<=p[i,j];
+subject to ogr4 {j in 1..N}: sum {i in s..e} (x[i,j]- x[j,i]) = 0;
+subject to ogr5 {j in s..e}: x[s,j]<=p[s,j];
+subject to ogr6 {i in s..e}: x[i,s]<=0;
+subject to ogr7 {i in s..e}: x[i,e]<=p[i,e];
+subject to ogr8 {j in s..e}: x[e,j]<=0;
+subject to ogr9: sum {j in s..e} x[s,j]<=999;
