@@ -178,6 +178,8 @@ saveData2(handles.p,handles.kos,handles.kar,handles.cen,'dataV20');
 write_bat_for_AMPL( s, 'modelV2.mod', 'dataV20.dat', 'runV2.run' );
 system('a1.bat');
 [ handles.x, handles.d ] = load_AMPL_results();
+handles.x=hideAMPLgarbage(handles.x);
+handles.d=hideAMPLgarbage(handles.d);
 handles.A=handles.x;
 handles.currentMatrix='x';
 set(handles.uitable1,'Data',handles.A);
