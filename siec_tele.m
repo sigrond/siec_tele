@@ -163,6 +163,8 @@ handles.currentMatrix='x';
 set(handles.uitable1,'Data',handles.A);
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+textLabel = 'wynik analizy 1';
+set(handles.text_wynik_analizy, 'String', textLabel);
 guidata(hObject, handles);
 
 
@@ -181,6 +183,8 @@ handles.currentMatrix='x';
 set(handles.uitable1,'Data',handles.A);
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+textLabel = 'wynik analizy 2';
+set(handles.text_wynik_analizy, 'String', textLabel);
 guidata(hObject, handles);
 
 
