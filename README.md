@@ -2,7 +2,7 @@
 
 ## todo:
 ### 1. Analiza 1
-- a) skrypt zapisujący d i N do pliku danych
+- a) skrypt zapisujący d i N do pliku danych TJ
 - b) skrypt zapisujący bat z wywołaniem modelu 1.5 z właściwymi parametrami MŁ
 - c) skrypt wywołujący ampla, odczytujący wynik i zwracający go
 - d) skrypt stwierdzający na danych (wynikach) czy wymagania są spełnione
