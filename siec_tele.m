@@ -172,7 +172,8 @@ function pushbutton_analiza2_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 s=strjoin(handles.AMPLpath{1});
-write_bat_for_AMPL( s, 'modelV2.mod', 'dataV2.dat', 'runV2.run' );
+saveData2(handles.p,handles.kos,handles.kar,handles.cen,'dataV20');
+write_bat_for_AMPL( s, 'modelV2.mod', 'dataV20.dat', 'runV2.run' );
 system('a1.bat');
 [ handles.x, handles.d ] = load_AMPL_results();
 handles.A=handles.x;

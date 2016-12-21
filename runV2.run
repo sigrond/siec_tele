@@ -1,5 +1,5 @@
 model modelV2.mod;
-data dataV2.dat;
+data dataV20.dat;
 solve;
 display x;
 display d;
