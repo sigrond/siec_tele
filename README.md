@@ -8,7 +8,7 @@
 - d) skrypt stwierdzający na danych (wynikach) czy wymagania są spełnione
 - e) skrypt mówiący ile ewentualnie zabrakło do spełnienia wymagań
 - f) skrypt wskazujący łuki krytyczne
-- g) w aplikacji pole z odpowiedziami tekstowymi
+- g) w aplikacji pole z odpowiedziami tekstowymi MŁ
 - h) ulepszenie grafów, żeby lepiej wyglądały
 - i) uporządkować sprawy z plikamu .run MŁ
 
