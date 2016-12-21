@@ -1,4 +1,4 @@
-model modelV15.mod;
+model model.mod;
 data dataV15.dat;
 solve;
 display x;
