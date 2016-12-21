@@ -5,10 +5,10 @@ function [ output_args ] = saveData1_5( p, name )
 M=int32(p);
 fname = strcat(name,'.dat');
 [n k] = size(M);
-Z=[[1:n]' M];
-a= [1:k];
+Z=[[0:n-1]' M];
+a= [0:k-1];
 fid=fopen(fname,'w');
-fprintf(fid,'param N = %d ;\n\n',n);
+fprintf(fid,'param N = %d ;\n\n',(n-2));
 fprintf(fid,'param p ');
 if(k > 1)
 	fprintf(fid,':');

@@ -157,7 +157,7 @@ s=strjoin(handles.AMPLpath{1});
 saveData1_5(handles.p,'dataV15');
 write_bat_for_AMPL( s, 'model.mod', 'dataV15.dat', 'runV15.run' );
 system('a1.bat');
-[ handles.x, handles.d ] = load_AMPL_results();
+handles.x = load_AMPL_results15();
 handles.A=handles.x;
 handles.currentMatrix='x';
 set(handles.uitable1,'Data',handles.A);
