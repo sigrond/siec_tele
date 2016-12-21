@@ -10,6 +10,7 @@
 - f) skrypt wskazujący łuki krytyczne
 - g) w aplikacji pole z odpowiedziami tekstowymi
 - h) ulepszenie grafów, żeby lepiej wyglądały
+- i) uporządkować sprawy z plikamu .run
 
 ### 2. Analiza 2
 - a) skrypt (podobny do 1a) zapisujący dane modelu 2.0 do pliku
