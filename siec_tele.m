@@ -154,7 +154,7 @@ function pushbutton_analiza1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 s=strjoin(handles.AMPLpath{1});
-write_bat_for_AMPL( s, 'modelV2.mod', handles.DatFileName, 'run.run' );
+write_bat_for_AMPL( s, 'modelV15.mod', 'dataV15.dat', 'runV15.run' );
 system('a1.bat');
 [ handles.x, handles.d ] = load_AMPL_results();
 handles.A=handles.x;
@@ -170,6 +170,16 @@ function pushbutton_analiza2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton_analiza2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+s=strjoin(handles.AMPLpath{1});
+write_bat_for_AMPL( s, 'modelV2.mod', 'dataV2.dat', 'runV2.run' );
+system('a1.bat');
+[ handles.x, handles.d ] = load_AMPL_results();
+handles.A=handles.x;
+handles.currentMatrix='x';
+set(handles.uitable1,'Data',handles.A);
+handles.G=digraph(handles.A);
+handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+guidata(hObject, handles);
 
 
 % --------------------------------------------------------------------
