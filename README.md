@@ -14,4 +14,5 @@
 
 ### 2. Analiza 2
 - a) skrypt (podobny do 1a) zapisujący dane modelu 2.0 do pliku
-- b)
+- b) wyświetlić w aplikacji co mozna zrobić, żeby spełnić nowe wymagania
+- c) zlikwidować 8.4e-17
