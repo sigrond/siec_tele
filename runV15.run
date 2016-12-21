@@ -1,5 +1,6 @@
 model model.mod;
 data dataV15.dat;
 solve;
+option display_width 1000;
+option display_1col 0;
 display x;
-display d;
