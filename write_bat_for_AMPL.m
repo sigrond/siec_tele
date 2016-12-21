@@ -23,7 +23,7 @@ fprintf(f,'"\n');
 fprintf(f,'cd "');
 fprintf(f,'%s',AMPLpath);
 fprintf(f,'"\n');
-fprintf(f,'ampl.exe run.run > out\n');
+fprintf(f,'ampl.exe %s > out\n', run_name);
 fprintf(f,'copy out "%%~f0\\..\\"\n');
 
 fclose(f);

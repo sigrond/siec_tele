@@ -1,0 +1,5 @@
+model modelV15.mod;
+data dataV15.dat;
+solve;
+display x;
+display d;
