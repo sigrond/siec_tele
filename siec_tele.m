@@ -161,6 +161,7 @@ handles.x = load_AMPL_results15();
 handles.A=handles.x;
 handles.currentMatrix='x';
 set(handles.uitable1,'Data',handles.A);
+
 g1=digraph(handles.p);
 g2=digraph(handles.x);
 %[sOut,tOut]=findedge(g1,g2.Edges.EndNodes);
@@ -169,10 +170,17 @@ g2=digraph(handles.x);
 g3=g1;
 g3=rmedge(g3,sOut,tOut);
 g3=addedge(g3,g2.Edges);
-
 %handles.G=digraph(handles.A);
 handles.G=g3;
-handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+g4=g1;
+g4.Edges.Weight=zeros(size(g4.Edges.Weight,1),1);
+g4=rmedge(g4,sOut,tOut);
+g4=addedge(g4,g2.Edges);
+labels=cell(size(handles.G.Edges.Weight,1),1);
+for i=1:size(handles.G.Edges.Weight,1)
+    labels(i)={sprintf('%d/%d',g4.Edges.Weight(i),g1.Edges.Weight(i))};
+end
+handles.pl=plot(handles.G,'Layout','force','EdgeLabel',labels);
 highlight(handles.pl,g2.Edges.EndNodes(:,1),g2.Edges.EndNodes(:,2),'EdgeColor','red')
 
 textLabel = 'wynik analizy 1';
