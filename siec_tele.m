@@ -161,8 +161,20 @@ handles.x = load_AMPL_results15();
 handles.A=handles.x;
 handles.currentMatrix='x';
 set(handles.uitable1,'Data',handles.A);
-handles.G=digraph(handles.A);
+g1=digraph(handles.p);
+g2=digraph(handles.x);
+%[sOut,tOut]=findedge(g1,g2.Edges.EndNodes);
+%findedge jest zbugowane, nie znajduje wszystkich krawêdzi
+[sOut,tOut]=myFindEdge(g1,g2.Edges.EndNodes(:,1),g2.Edges.EndNodes(:,2));
+g3=g1;
+g3=rmedge(g3,sOut,tOut);
+g3=addedge(g3,g2.Edges);
+
+%handles.G=digraph(handles.A);
+handles.G=g3;
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+highlight(handles.pl,g2.Edges.EndNodes(:,1),g2.Edges.EndNodes(:,2),'EdgeColor','red')
+
 textLabel = 'wynik analizy 1';
 set(handles.text_wynik_analizy, 'String', textLabel);
 guidata(hObject, handles);
