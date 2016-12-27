@@ -182,6 +182,16 @@ for i=1:size(handles.G.Edges.Weight,1)
 end
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',labels);
 highlight(handles.pl,g2.Edges.EndNodes(:,1),g2.Edges.EndNodes(:,2),'EdgeColor','red')
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+for i=1:size(handles.G.Edges.Weight,1)
+    if g4.Edges.Weight(i)==g1.Edges.Weight(i)
+        highlight(handles.pl,g1.Edges.EndNodes(i,1),g1.Edges.EndNodes(i,2),'EdgeColor','r','LineWidth',3);
+    end
+end
+
 
 textLabel = 'wynik analizy 1';
 set(handles.text_wynik_analizy, 'String', textLabel);
