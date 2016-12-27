@@ -186,14 +186,16 @@ highlight(handles.pl,1);
 highlight(handles.pl,1,'NodeColor','g');
 highlight(handles.pl,size(handles.G.Nodes,1));
 highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+textLabel = sprintf('wynik analizy 1:\n³uki krytyczne:\n');
 for i=1:size(handles.G.Edges.Weight,1)
     if g4.Edges.Weight(i)==g1.Edges.Weight(i)
         highlight(handles.pl,g1.Edges.EndNodes(i,1),g1.Edges.EndNodes(i,2),'EdgeColor','r','LineWidth',3);
+        textLabel = sprintf('%s [%d %d]',textLabel,g1.Edges.EndNodes(i,1),g1.Edges.EndNodes(i,2));
     end
 end
 
 
-textLabel = 'wynik analizy 1';
+
 set(handles.text_wynik_analizy, 'String', textLabel);
 guidata(hObject, handles);
 
