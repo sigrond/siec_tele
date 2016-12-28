@@ -22,7 +22,7 @@ function varargout = siec_tele(varargin)
 
 % Edit the above text to modify the response to help siec_tele
 
-% Last Modified by GUIDE v2.5 16-Dec-2016 09:42:56
+% Last Modified by GUIDE v2.5 28-Dec-2016 18:28:54
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -436,3 +436,19 @@ function Untitled_1_Callback(hObject, eventdata, handles)
 % hObject    handle to Untitled_1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function select_AMPL_path_Callback(hObject, eventdata, handles)
+% hObject    handle to select_AMPL_path (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+s=strjoin(handles.AMPLpath{1});
+folder_name = uigetdir(s,'Wybierz folder z instalacj¹ AMPL');
+save_AMPL_path( folder_name );
+handles.AMPLpath=load_AMPL_path();
+guidata(hObject, handles);
+
+
+
+
