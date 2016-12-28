@@ -219,9 +219,55 @@ set(handles.uitable1,'Data',handles.A);
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
 textLabel = 'wynik analizy 2';
-set(handles.text_wynik_analizy, 'String', textLabel);
 set(handles.pushbutton_x,'Enable','on');
 set(handles.pushbutton_d,'Enable','on');
+
+
+g1=digraph(handles.p);
+g2=digraph(handles.x);
+g5=digraph(handles.d);
+[sOut,tOut]=myFindEdge(g1,g2.Edges.EndNodes(:,1),g2.Edges.EndNodes(:,2));
+g3=g1;
+g3=rmedge(g3,sOut,tOut);
+g3=addedge(g3,g2.Edges);
+%handles.G=digraph(handles.A);
+handles.G=g3;
+g4=g1;
+g4.Edges.Weight=zeros(size(g4.Edges.Weight,1),1);
+g4=rmedge(g4,sOut,tOut);
+g4=addedge(g4,g2.Edges);
+labels=cell(size(handles.G.Edges.Weight,1),1);
+for i=1:size(handles.G.Edges.Weight,1)
+    j=findedge(g1,g4.Edges.EndNodes(i,1),g4.Edges.EndNodes(i,2));
+    if j~=0
+        labels(i)={sprintf('%d/%d',g4.Edges.Weight(i),g1.Edges.Weight(j))};
+    else
+        labels(i)={sprintf('%d/0',g4.Edges.Weight(i))};
+    end
+end
+handles.pl=plot(handles.G,'Layout','force','EdgeLabel',labels);
+highlight(handles.pl,g2.Edges.EndNodes(:,1),g2.Edges.EndNodes(:,2),'EdgeColor','red')
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+textLabel = sprintf('wynik analizy 2:\n³uki krytyczne:\n');
+textTmp=sprintf('\nprzep³yw dzier¿awiony:\n');
+for i=1:size(handles.G.Edges.Weight,1)
+    j=findedge(g1,g4.Edges.EndNodes(i,1),g4.Edges.EndNodes(i,2));
+    if j~=0
+        if g4.Edges.Weight(i)==g1.Edges.Weight(j)
+            highlight(handles.pl,g1.Edges.EndNodes(j,1),g1.Edges.EndNodes(j,2),'EdgeColor','r','LineWidth',3);
+            textLabel = sprintf('%s [%d %d]',textLabel,g1.Edges.EndNodes(j,1),g1.Edges.EndNodes(j,2));
+        end
+    else
+        highlight(handles.pl,g4.Edges.EndNodes(i,1),g4.Edges.EndNodes(i,2),'EdgeColor','m','LineWidth',3);
+        textTmp = sprintf('%s [%d %d]',textTmp,g4.Edges.EndNodes(i,1),g1.Edges.EndNodes(i,2));
+    end
+end
+textLabel = sprintf('%s%s',textLabel,textTmp);
+
+set(handles.text_wynik_analizy, 'String', textLabel);
 guidata(hObject, handles);
 
 
