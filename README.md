@@ -7,7 +7,7 @@
 - [x] c) skrypt wywołujący ampla, odczytujący wynik i zwracający go
 - [ ] d) skrypt stwierdzający na danych (wynikach) czy wymagania są spełnione MŁ
 - [ ] e) skrypt mówiący ile ewentualnie zabrakło do spełnienia wymagań MŁ
-- [ ] f) skrypt wskazujący łuki krytyczne TJ
+- [x] f) skrypt wskazujący łuki krytyczne TJ
 - [ ] g) w aplikacji pole z odpowiedziami tekstowymi MŁ
 - [ ] h) ulepszenie grafów, żeby lepiej wyglądały TJ
 - [x] i) uporządkować sprawy z plikamu .run MŁ

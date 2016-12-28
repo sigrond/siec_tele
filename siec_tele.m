@@ -161,6 +161,7 @@ handles.x = load_AMPL_results15();
 handles.A=handles.x;
 handles.currentMatrix='x';
 set(handles.uitable1,'Data',handles.A);
+set(handles.pushbutton_x,'Enable','on');
 
 g1=digraph(handles.p);
 g2=digraph(handles.x);
@@ -219,6 +220,8 @@ handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
 textLabel = 'wynik analizy 2';
 set(handles.text_wynik_analizy, 'String', textLabel);
+set(handles.pushbutton_x,'Enable','on');
+set(handles.pushbutton_d,'Enable','on');
 guidata(hObject, handles);
 
 
