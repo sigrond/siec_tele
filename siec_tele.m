@@ -292,10 +292,12 @@ function save_to_AMPL_Callback(hObject, eventdata, handles)
 % hObject    handle to save_to_AMPL (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-save_to_AMPL_data(handles.p,'p');
-save_to_AMPL_data(handles.kos,'kos');
-save_to_AMPL_data(handles.kar,'kar');
-save_to_AMPL_data(handles.cen,'cen');
+[file,path] = uiputfile('dane.dat','Zapisz dane do pliku');
+saveData2b( handles.p,handles.kos,handles.kar,handles.cen,file,path );
+%save_to_AMPL_data(handles.p,'p');
+%save_to_AMPL_data(handles.kos,'kos');
+%save_to_AMPL_data(handles.kar,'kar');
+%save_to_AMPL_data(handles.cen,'cen');
 
 
 
