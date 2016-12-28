@@ -1,5 +1,7 @@
 # siec_tele
 
+![Alt text](siec_tele_28_12_2016_19_10.png?raw=true "Optional Title")
+
 ## todo:
 ### 1. Analiza 1
 - [x] a) skrypt zapisujący d i N do pliku danych TJ
