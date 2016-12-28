@@ -2,7 +2,7 @@ function [ p, kos, kar, cen ] = load_from_AMPL_data( fname )
 %load_from_AMPL_data wczyta dane z pliku .dat
 %   bez gwarancji idiotoodpornoœci
 f=fopen(fname,'r');
-N=fscanf(f,'param N := %d;\n',1);
+N=fscanf(f,'param N %*[:=] %d ;\n',1);
 fscanf(f,'param p :\n',1);
 tmp1=fscanf(f,'\t%d',[N+2]);
 fscanf(f,' :=\n',1);
