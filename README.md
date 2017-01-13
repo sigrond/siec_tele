@@ -22,3 +22,4 @@
 ### 3. Inne
 - [ ] a) legenda kolorów
 - [ ] b) węzły klientów na cyjanowy
+- [ ] c) rozszerzyć nazwy guzików
