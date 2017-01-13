@@ -22,5 +22,5 @@
 ### 3. Inne
 - [ ] a) legenda kolorów
 - [x] b) węzły klientów na cyjanowy
-- [ ] c) rozszerzyć nazwy guzików
+- [x] c) rozszerzyć nazwy guzików
 - [ ] d) automatyczne uzupełnianie symetri przy zmianie macierzy
