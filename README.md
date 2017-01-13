@@ -18,3 +18,7 @@
 - [x] a) skrypt (podobny do 1a) zapisujący dane modelu 2.0 do pliku
 - [x] b) wyświetlić w aplikacji co mozna zrobić, żeby spełnić nowe wymagania
 - [x] c) zlikwidować 8.4e-17
+
+### 3. Inne
+- [ ] a) legenda kolorów
+- [ ] b) węzły klientów na cyjanowy
