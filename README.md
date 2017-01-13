@@ -7,7 +7,7 @@
 - [x] a) skrypt zapisujący d i N do pliku danych TJ
 - [x] b) skrypt zapisujący bat z wywołaniem modelu 1.5 z właściwymi parametrami MŁ
 - [x] c) skrypt wywołujący ampla, odczytujący wynik i zwracający go
-- [ ] d) skrypt stwierdzający na danych (wynikach) czy wymagania są spełnione MŁ
+- [x] d) skrypt stwierdzający na danych (wynikach) czy wymagania są spełnione MŁ -> TJ
 - [ ] e) skrypt mówiący ile ewentualnie zabrakło do spełnienia wymagań MŁ
 - [x] f) skrypt wskazujący łuki krytyczne TJ
 - [ ] g) w aplikacji pole z odpowiedziami tekstowymi MŁ
