@@ -72,6 +72,16 @@ highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
 handles.AMPLpath=load_AMPL_path();
 handles.DatFileName='dataV2.dat';
 
+hold on;
+h = zeros(3, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
+
 
 % Update handles structure
 guidata(hObject, handles);
@@ -121,6 +131,17 @@ for i=1:size(klienci,2)
     highlight(handles.pl,klienci(i));
     highlight(handles.pl,klienci(i),'NodeColor','c');
 end
+
+hold on;
+h = zeros(3, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
+
 guidata(hObject, handles);
 
 
@@ -139,6 +160,17 @@ highlight(handles.pl,1);
 highlight(handles.pl,1,'NodeColor','g');
 highlight(handles.pl,size(handles.G.Nodes,1));
 highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+
+hold on;
+h = zeros(3, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
+
 guidata(hObject, handles);
 
 
@@ -251,6 +283,19 @@ end
 
 
 set(handles.text_wynik_analizy, 'String', textLabel);
+
+hold on;
+h = zeros(5, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+h(4) = plot(0,0,'-r', 'visible', 'off');
+h(5) = plot(0,0,'-r','LineWidth',2, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o','przep³yw','³uk krytyczny');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
+
 guidata(hObject, handles);
 
 
@@ -332,6 +377,19 @@ for i=1:size(handles.G.Edges.Weight,1)
 end
 textLabel = sprintf('%s%s',textLabel,textTmp);
 
+hold on;
+h = zeros(6, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+h(4) = plot(0,0,'-r', 'visible', 'off');
+h(5) = plot(0,0,'-r','LineWidth',2, 'visible', 'off');
+h(6) = plot(0,0,'-m','LineWidth',2, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o','przep³yw','³uk krytyczny','dzier¿awa');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
+
 set(handles.text_wynik_analizy, 'String', textLabel);
 guidata(hObject, handles);
 
@@ -380,6 +438,17 @@ highlight(handles.pl,1);
 highlight(handles.pl,1,'NodeColor','g');
 highlight(handles.pl,size(handles.G.Nodes,1));
 highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+
+hold on;
+h = zeros(3, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
+
 guidata(hObject, handles);
 
 % --- Executes on button press in pushbutton_kar.
@@ -396,6 +465,17 @@ highlight(handles.pl,1);
 highlight(handles.pl,1,'NodeColor','g');
 highlight(handles.pl,size(handles.G.Nodes,1));
 highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+
+hold on;
+h = zeros(3, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
+
 guidata(hObject, handles);
 
 % --------------------------------------------------------------------
@@ -459,6 +539,17 @@ highlight(handles.pl,1);
 highlight(handles.pl,1,'NodeColor','g');
 highlight(handles.pl,size(handles.G.Nodes,1));
 highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+
+hold on;
+h = zeros(3, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
+
 guidata(hObject, handles);
 
 
@@ -476,6 +567,17 @@ highlight(handles.pl,1);
 highlight(handles.pl,1,'NodeColor','g');
 highlight(handles.pl,size(handles.G.Nodes,1));
 highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+
+hold on;
+h = zeros(3, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
+
 guidata(hObject, handles);
 
 
