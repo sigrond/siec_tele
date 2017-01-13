@@ -190,6 +190,7 @@ x=I(1);
 y=I(2);
 
 handles.A(x,y)=eventdata.NewData;
+handles.A(y,x)=eventdata.NewData;
 set(handles.uitable1,'Data',handles.A);
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
