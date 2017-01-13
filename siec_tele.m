@@ -63,7 +63,12 @@ handles.cen=handles.A;
 %handles.B=ones(10,10);
 handles.currentMatrix='p';
 handles.G=digraph(handles.A);
+
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
 handles.AMPLpath=load_AMPL_path();
 handles.DatFileName='dataV2.dat';
 
@@ -97,7 +102,25 @@ handles.A=handles.p;
 set(handles.uitable1,'Data',handles.A);
 handles.currentMatrix='p';
 handles.G=digraph(handles.A);
+k=0;
+for i=1:size(handles.G.Edges.Weight,1)
+    if handles.G.Edges.EndNodes(i,1)==size(handles.G.Nodes,1)
+        k=k+1;
+        klienci(k)=handles.G.Edges.EndNodes(i,2);
+    elseif handles.G.Edges.EndNodes(i,2)==size(handles.G.Nodes,1)
+        k=k+1;
+        klienci(k)=handles.G.Edges.EndNodes(i,1);
+    end
+end
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+for i=1:size(klienci,2)
+    highlight(handles.pl,klienci(i));
+    highlight(handles.pl,klienci(i),'NodeColor','c');
+end
 guidata(hObject, handles);
 
 
@@ -112,6 +135,10 @@ set(handles.uitable1,'Data',handles.A);
 handles.currentMatrix='cen';
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
 guidata(hObject, handles);
 
 
@@ -349,6 +376,10 @@ set(handles.uitable1,'Data',handles.A);
 handles.currentMatrix='kos';
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
 guidata(hObject, handles);
 
 % --- Executes on button press in pushbutton_kar.
@@ -361,6 +392,10 @@ set(handles.uitable1,'Data',handles.A);
 handles.currentMatrix='kar';
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
 guidata(hObject, handles);
 
 % --------------------------------------------------------------------
@@ -382,7 +417,25 @@ switch handles.currentMatrix
 end
 set(handles.uitable1,'Data',handles.A);
 handles.G=digraph(handles.A);
+k=0;
+for i=1:size(handles.G.Edges.Weight,1)
+    if handles.G.Edges.EndNodes(i,1)==size(handles.G.Nodes,1)
+        k=k+1;
+        klienci(k)=handles.G.Edges.EndNodes(i,2);
+    elseif handles.G.Edges.EndNodes(i,2)==size(handles.G.Nodes,1)
+        k=k+1;
+        klienci(k)=handles.G.Edges.EndNodes(i,1);
+    end
+end
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+for i=1:size(klienci,2)
+    highlight(handles.pl,klienci(i));
+    highlight(handles.pl,klienci(i),'NodeColor','c');
+end
 guidata(hObject, handles);
 
 % --------------------------------------------------------------------
@@ -402,6 +455,10 @@ handles.currentMatrix='x';
 set(handles.uitable1,'Data',handles.A);
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
 guidata(hObject, handles);
 
 
@@ -415,6 +472,10 @@ handles.currentMatrix='d';
 set(handles.uitable1,'Data',handles.A);
 handles.G=digraph(handles.A);
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
 guidata(hObject, handles);
 
 
