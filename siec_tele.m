@@ -181,12 +181,20 @@ g4=addedge(g4,g2.Edges);
 labels=cell(size(handles.G.Edges.Weight,1),1);
 spelnione=true;
 brakuje=0;
+j=0;
 for i=1:size(handles.G.Edges.Weight,1)
     labels(i)={sprintf('%d/%d',g4.Edges.Weight(i),g1.Edges.Weight(i))};
     if g1.Edges.EndNodes(i,1)==size(handles.G.Nodes,1) || g1.Edges.EndNodes(i,2)==size(handles.G.Nodes,1)
         if g4.Edges.Weight(i)~=g1.Edges.Weight(i)
             spelnione=false;
             brakuje=brakuje+abs(g4.Edges.Weight(i)-g1.Edges.Weight(i));
+        end
+        if g1.Edges.EndNodes(i,1)==size(handles.G.Nodes,1)
+            j=j+1;
+            klienci(j)=g1.Edges.EndNodes(i,2);
+        elseif g1.Edges.EndNodes(i,2)==size(handles.G.Nodes,1)
+            j=j+1;
+            klienci(j)=g1.Edges.EndNodes(i,1);
         end
     end
 end
@@ -196,6 +204,10 @@ highlight(handles.pl,1);
 highlight(handles.pl,1,'NodeColor','g');
 highlight(handles.pl,size(handles.G.Nodes,1));
 highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+for i=1:size(klienci,2)
+    highlight(handles.pl,klienci(i));
+    highlight(handles.pl,klienci(i),'NodeColor','c');
+end
 textLabel = sprintf('wynik analizy 1:\n³uki krytyczne:\n');
 for i=1:size(handles.G.Edges.Weight,1)
     if g4.Edges.Weight(i)==g1.Edges.Weight(i)
@@ -251,12 +263,20 @@ g4.Edges.Weight=zeros(size(g4.Edges.Weight,1),1);
 g4=rmedge(g4,sOut,tOut);
 g4=addedge(g4,g2.Edges);
 labels=cell(size(handles.G.Edges.Weight,1),1);
+k=0;
 for i=1:size(handles.G.Edges.Weight,1)
     j=findedge(g1,g4.Edges.EndNodes(i,1),g4.Edges.EndNodes(i,2));
     if j~=0
         labels(i)={sprintf('%d/%d',g4.Edges.Weight(i),g1.Edges.Weight(j))};
     else
         labels(i)={sprintf('%d/0',g4.Edges.Weight(i))};
+    end
+    if handles.G.Edges.EndNodes(i,1)==size(handles.G.Nodes,1)
+        k=k+1;
+        klienci(k)=handles.G.Edges.EndNodes(i,2);
+    elseif handles.G.Edges.EndNodes(i,2)==size(handles.G.Nodes,1)
+        k=k+1;
+        klienci(k)=handles.G.Edges.EndNodes(i,1);
     end
 end
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',labels);
@@ -265,6 +285,10 @@ highlight(handles.pl,1);
 highlight(handles.pl,1,'NodeColor','g');
 highlight(handles.pl,size(handles.G.Nodes,1));
 highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+for i=1:size(klienci,2)
+    highlight(handles.pl,klienci(i));
+    highlight(handles.pl,klienci(i),'NodeColor','c');
+end
 textLabel = sprintf('wynik analizy 2:\n³uki krytyczne:\n');
 textTmp=sprintf('\nprzep³yw dzier¿awiony:\n');
 for i=1:size(handles.G.Edges.Weight,1)
