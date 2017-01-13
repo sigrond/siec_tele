@@ -10,7 +10,7 @@
 - [x] d) skrypt stwierdzający na danych (wynikach) czy wymagania są spełnione MŁ -> TJ
 - [x] e) skrypt mówiący ile ewentualnie zabrakło do spełnienia wymagań MŁ -> TJ
 - [x] f) skrypt wskazujący łuki krytyczne TJ
-- [ ] g) w aplikacji pole z odpowiedziami tekstowymi MŁ
+- [x] g) w aplikacji pole z odpowiedziami tekstowymi MŁ
 - [x] h) ulepszenie grafów, żeby lepiej wyglądały TJ
 - [x] i) uporządkować sprawy z plikamu .run MŁ
 
