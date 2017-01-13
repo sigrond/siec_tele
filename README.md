@@ -20,7 +20,7 @@
 - [x] c) zlikwidować 8.4e-17
 
 ### 3. Inne
-- [ ] a) legenda kolorów
+- [x] a) legenda kolorów
 - [x] b) węzły klientów na cyjanowy
 - [x] c) rozszerzyć nazwy guzików
 - [ ] d) automatyczne uzupełnianie symetri przy zmianie macierzy
