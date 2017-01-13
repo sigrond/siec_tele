@@ -22,7 +22,7 @@ function varargout = siec_tele(varargin)
 
 % Edit the above text to modify the response to help siec_tele
 
-% Last Modified by GUIDE v2.5 28-Dec-2016 18:28:54
+% Last Modified by GUIDE v2.5 13-Jan-2017 09:30:04
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -158,6 +158,7 @@ saveData1_5(handles.p,'dataV15');
 write_bat_for_AMPL( s, 'model.mod', 'dataV15.dat', 'runV15.run' );
 system('a1.bat');
 handles.x = load_AMPL_results15();
+handles.x=hideAMPLgarbage(handles.x);
 handles.A=handles.x;
 handles.currentMatrix='x';
 set(handles.uitable1,'Data',handles.A);
@@ -178,8 +179,14 @@ g4.Edges.Weight=zeros(size(g4.Edges.Weight,1),1);
 g4=rmedge(g4,sOut,tOut);
 g4=addedge(g4,g2.Edges);
 labels=cell(size(handles.G.Edges.Weight,1),1);
+spelnione=true;
 for i=1:size(handles.G.Edges.Weight,1)
     labels(i)={sprintf('%d/%d',g4.Edges.Weight(i),g1.Edges.Weight(i))};
+    if g1.Edges.EndNodes(i,1)==size(handles.G.Nodes,1) || g1.Edges.EndNodes(i,2)==size(handles.G.Nodes,1)
+        if g4.Edges.Weight(i)~=g1.Edges.Weight(i)
+            spelnione=false;
+        end
+    end
 end
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',labels);
 highlight(handles.pl,g2.Edges.EndNodes(:,1),g2.Edges.EndNodes(:,2),'EdgeColor','red')
@@ -195,6 +202,11 @@ for i=1:size(handles.G.Edges.Weight,1)
     end
 end
 
+if spelnione
+    textLabel = sprintf('%s\nWymagania klientów spe³nione\n',textLabel);
+else
+    textLabel = sprintf('%s\nWymagania klientów nie spe³nione\n',textLabel);
+end
 
 
 set(handles.text_wynik_analizy, 'String', textLabel);
@@ -448,7 +460,3 @@ folder_name = uigetdir(s,'Wybierz folder z instalacj¹ AMPL');
 save_AMPL_path( folder_name );
 handles.AMPLpath=load_AMPL_path();
 guidata(hObject, handles);
-
-
-
-
