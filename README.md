@@ -23,4 +23,4 @@
 - [x] a) legenda kolorów
 - [x] b) węzły klientów na cyjanowy
 - [x] c) rozszerzyć nazwy guzików
-- [ ] d) automatyczne uzupełnianie symetri przy zmianie macierzy
+- [x] d) automatyczne uzupełnianie symetri przy zmianie macierzy
