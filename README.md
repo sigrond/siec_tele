@@ -8,7 +8,7 @@
 - [x] b) skrypt zapisujący bat z wywołaniem modelu 1.5 z właściwymi parametrami MŁ
 - [x] c) skrypt wywołujący ampla, odczytujący wynik i zwracający go
 - [x] d) skrypt stwierdzający na danych (wynikach) czy wymagania są spełnione MŁ -> TJ
-- [ ] e) skrypt mówiący ile ewentualnie zabrakło do spełnienia wymagań MŁ
+- [x] e) skrypt mówiący ile ewentualnie zabrakło do spełnienia wymagań MŁ -> TJ
 - [x] f) skrypt wskazujący łuki krytyczne TJ
 - [ ] g) w aplikacji pole z odpowiedziami tekstowymi MŁ
 - [x] h) ulepszenie grafów, żeby lepiej wyglądały TJ
