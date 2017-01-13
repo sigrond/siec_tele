@@ -24,3 +24,4 @@
 - [x] b) węzły klientów na cyjanowy
 - [x] c) rozszerzyć nazwy guzików
 - [x] d) automatyczne uzupełnianie symetri przy zmianie macierzy
+- [ ] e) wyłapać kiedy "10/5", pokolorować i wypisać
