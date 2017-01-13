@@ -180,11 +180,13 @@ g4=rmedge(g4,sOut,tOut);
 g4=addedge(g4,g2.Edges);
 labels=cell(size(handles.G.Edges.Weight,1),1);
 spelnione=true;
+brakuje=0;
 for i=1:size(handles.G.Edges.Weight,1)
     labels(i)={sprintf('%d/%d',g4.Edges.Weight(i),g1.Edges.Weight(i))};
     if g1.Edges.EndNodes(i,1)==size(handles.G.Nodes,1) || g1.Edges.EndNodes(i,2)==size(handles.G.Nodes,1)
         if g4.Edges.Weight(i)~=g1.Edges.Weight(i)
             spelnione=false;
+            brakuje=brakuje+abs(g4.Edges.Weight(i)-g1.Edges.Weight(i));
         end
     end
 end
@@ -205,7 +207,7 @@ end
 if spelnione
     textLabel = sprintf('%s\nWymagania klientów spe³nione\n',textLabel);
 else
-    textLabel = sprintf('%s\nWymagania klientów nie spe³nione\n',textLabel);
+    textLabel = sprintf('%s\nWymagania klientów nie spe³nione - brakuje: %d\n',textLabel,brakuje);
 end
 
 
