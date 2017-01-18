@@ -1,6 +1,6 @@
 # siec_tele
 
-![Alt text](siec_tele_28_12_2016_19_10.png?raw=true "Optional Title")
+![Alt text](siec_tele_18_01_2017_22_14.png?raw=true "wyglad aplikacji")
 
 ## todo:
 ### 1. Analiza 1
@@ -24,4 +24,4 @@
 - [x] b) węzły klientów na cyjanowy
 - [x] c) rozszerzyć nazwy guzików
 - [x] d) automatyczne uzupełnianie symetri przy zmianie macierzy
-- [ ] e) wyłapać kiedy "10/5", pokolorować i wypisać
+- [x] e) wyłapać kiedy "10/5", pokolorować i wypisać
