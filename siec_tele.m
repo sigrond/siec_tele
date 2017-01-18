@@ -188,12 +188,47 @@ function uitable1_CellEditCallback(hObject, eventdata, handles)
 I=eventdata.Indices;
 x=I(1);
 y=I(2);
-
-handles.A(x,y)=eventdata.NewData;
-handles.A(y,x)=eventdata.NewData;
+if x==1 || y==size(handles.A,2)
+    handles.A(x,y)=eventdata.NewData;
+    handles.A(y,x)=0;
+elseif y~=1 && x~=size(handles.A,1)
+    handles.A(x,y)=eventdata.NewData;
+    handles.A(y,x)=eventdata.NewData;
+end
 set(handles.uitable1,'Data',handles.A);
 handles.G=digraph(handles.A);
+
+k=0;
+for i=1:size(handles.G.Edges.Weight,1)
+    if handles.G.Edges.EndNodes(i,1)==size(handles.G.Nodes,1)
+        k=k+1;
+        klienci(k)=handles.G.Edges.EndNodes(i,2);
+    elseif handles.G.Edges.EndNodes(i,2)==size(handles.G.Nodes,1)
+        k=k+1;
+        klienci(k)=handles.G.Edges.EndNodes(i,1);
+    end
+end
+
 handles.pl=plot(handles.G,'Layout','force','EdgeLabel',handles.G.Edges.Weight);
+
+highlight(handles.pl,1);
+highlight(handles.pl,1,'NodeColor','g');
+highlight(handles.pl,size(handles.G.Nodes,1));
+highlight(handles.pl,size(handles.G.Nodes,1),'NodeColor','r');
+for i=1:size(klienci,2)
+    highlight(handles.pl,klienci(i));
+    highlight(handles.pl,klienci(i),'NodeColor','c');
+end
+
+hold on;
+h = zeros(3, 1);
+h(1) = plot(0,0,'.r','MarkerSize',30, 'visible', 'off');
+h(2) = plot(0,0,'.c','MarkerSize',30, 'visible', 'off');
+h(3) = plot(0,0,'.g','MarkerSize',30, 'visible', 'off');
+legend(h, 'ujœcie','klienci','Ÿród³o');
+legend('Location','southeast');
+legend('boxoff');
+hold off;
 
 switch handles.currentMatrix
     case 'p'
@@ -205,6 +240,8 @@ switch handles.currentMatrix
     case 'cen'
         handles.cen=handles.A;
 end
+
+
 guidata(hObject, handles);
 
 
@@ -371,9 +408,13 @@ for i=1:size(handles.G.Edges.Weight,1)
             highlight(handles.pl,g1.Edges.EndNodes(j,1),g1.Edges.EndNodes(j,2),'EdgeColor','r','LineWidth',3);
             textLabel = sprintf('%s [%d %d]',textLabel,g1.Edges.EndNodes(j,1),g1.Edges.EndNodes(j,2));
         end
+        if g4.Edges.Weight(i)>g1.Edges.Weight(j)
+            highlight(handles.pl,g4.Edges.EndNodes(i,1),g4.Edges.EndNodes(i,2),'EdgeColor','m','LineWidth',3);
+            textTmp = sprintf('%s [%d %d]',textTmp,g4.Edges.EndNodes(i,1),g4.Edges.EndNodes(i,2));
+        end
     else
         highlight(handles.pl,g4.Edges.EndNodes(i,1),g4.Edges.EndNodes(i,2),'EdgeColor','m','LineWidth',3);
-        textTmp = sprintf('%s [%d %d]',textTmp,g4.Edges.EndNodes(i,1),g1.Edges.EndNodes(i,2));
+        textTmp = sprintf('%s [%d %d]',textTmp,g4.Edges.EndNodes(i,1),g4.Edges.EndNodes(i,2));
     end
 end
 textLabel = sprintf('%s%s',textLabel,textTmp);
