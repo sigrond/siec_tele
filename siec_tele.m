@@ -305,7 +305,7 @@ for i=1:size(klienci,2)
     highlight(handles.pl,klienci(i));
     highlight(handles.pl,klienci(i),'NodeColor','c');
 end
-textLabel = sprintf('wynik analizy 1:\n³uki krytyczne:\n');
+textLabel = sprintf('wynik analizy spe³nialnoœci wymagañ:\n³uki krytyczne:\n');
 for i=1:size(handles.G.Edges.Weight,1)
     if g4.Edges.Weight(i)==g1.Edges.Weight(i)
         highlight(handles.pl,g1.Edges.EndNodes(i,1),g1.Edges.EndNodes(i,2),'EdgeColor','r','LineWidth',3);
@@ -399,7 +399,7 @@ for i=1:size(klienci,2)
     highlight(handles.pl,klienci(i));
     highlight(handles.pl,klienci(i),'NodeColor','c');
 end
-textLabel = sprintf('wynik analizy 2:\n³uki krytyczne:\n');
+textLabel = sprintf('wynik analizy mo¿liwoœci rozwoju sieci:\n³uki krytyczne:\n');
 textTmp=sprintf('\nprzep³yw dzier¿awiony:\n');
 for i=1:size(handles.G.Edges.Weight,1)
     j=findedge(g1,g4.Edges.EndNodes(i,1),g4.Edges.EndNodes(i,2));
