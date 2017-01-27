@@ -2,26 +2,19 @@
 
 ![Alt text](siec_tele_18_01_2017_22_14.png?raw=true "wyglad aplikacji")
 
-## todo:
-### 1. Analiza 1
-- [x] a) skrypt zapisujący d i N do pliku danych TJ
-- [x] b) skrypt zapisujący bat z wywołaniem modelu 1.5 z właściwymi parametrami MŁ
-- [x] c) skrypt wywołujący ampla, odczytujący wynik i zwracający go
-- [x] d) skrypt stwierdzający na danych (wynikach) czy wymagania są spełnione MŁ -> TJ
-- [x] e) skrypt mówiący ile ewentualnie zabrakło do spełnienia wymagań MŁ -> TJ
-- [x] f) skrypt wskazujący łuki krytyczne TJ
-- [x] g) w aplikacji pole z odpowiedziami tekstowymi MŁ
-- [x] h) ulepszenie grafów, żeby lepiej wyglądały TJ
-- [x] i) uporządkować sprawy z plikamu .run MŁ
+## Jak uruchomić?
+### Wymagania
+Projekt stworzony i przetestowany przy użyciu:
+- Windows
+- MATLAB R2015b lub R2016b
+- AMPL
 
-### 2. Analiza 2
-- [x] a) skrypt (podobny do 1a) zapisujący dane modelu 2.0 do pliku
-- [x] b) wyświetlić w aplikacji co mozna zrobić, żeby spełnić nowe wymagania
-- [x] c) zlikwidować 8.4e-17
+### Konfiguracja
+- plik `AMPLpath` powinien zawierać ścieżkę do katalogu zawierającego program `ampl.exe`
 
-### 3. Inne
-- [x] a) legenda kolorów
-- [x] b) węzły klientów na cyjanowy
-- [x] c) rozszerzyć nazwy guzików
-- [x] d) automatyczne uzupełnianie symetri przy zmianie macierzy
-- [x] e) wyłapać kiedy "10/5", pokolorować i wypisać
+### Użycie
+1. Uruchom program MATLAB
+2. Przejdź do katalogu projektu
+3. Otwórz plik `siec_tele.m`
+4. Użyj opcji `Run` z paska narzędziowego. Po chwili pojawi się okno programu.
+5. Wczytaj przykładowe dane: `Files` -> `Wczytaj macierze z pliku` -> `DaneTestowe.dat`
